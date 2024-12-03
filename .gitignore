@@ -1,0 +1,14 @@
+*.pro.user
+*.pro.user.*
+.qmake.cache
+.qmake.stash
+build/
+*.o
+*.obj
+*.a
+*.lo
+*.la
+*.dll
+*.exe
+*.so
+*.dylib
