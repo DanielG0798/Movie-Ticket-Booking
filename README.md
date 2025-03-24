@@ -1,4 +1,4 @@
-![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/danielg0798/movie-ticket-booking/badge)
+![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/DanielG0798/Movie-Ticket-Booking/badge)
 
 # Welcome to Movie Ticket Booking
 
