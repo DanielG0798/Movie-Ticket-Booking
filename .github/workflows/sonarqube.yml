@@ -63,3 +63,4 @@ jobs:
           args: >
             -Dsonar.projectKey=DanielG0798_Movie-Ticket-Booking
             -Dsonar.verbose=true
+            -Dsonar.ci.autoconfig.disabled=true
