@@ -1,6 +1,7 @@
 **Badges:**
 ![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/DanielG0798/Movie-Ticket-Booking/badge)
-[![OpenSSF Best Practices](https://api.bestpractices.dev/projects/10227/badge)](https://api.bestpractices.dev/en/projects/10227)
+<a href="(https://bestpractices.coreinfrastructure.org/projects/10227/badge.json)"><img src="https://bestpractices.coreinfrastructure.org/projects/10227/badge"></a>
+
 ## Purpose of Project
 
 Movie Ticket Booking is meant to streamline the process of buying movie tickets. It uses traditional methods but reduces the clutter and extra steps usually found in popular movie ticket sites. The purpose of this project is also to show my skills with C++ and Qt for UI design and backend development.
