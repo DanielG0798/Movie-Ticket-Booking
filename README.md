@@ -4,7 +4,7 @@
 
 ## Purpose of Project
 
-Movie Ticket Booking is meant to streamline the process of buying movie tickets. It uses traditional methods but reduces the clutter and extra steps usually found in popular movie ticket sites. The purpose of this project is also to show my skills with c++ and Qt for UI design and backend development.
+Movie Ticket Booking is meant to streamline the process of buying movie tickets. It uses traditional methods but reduces the clutter and extra steps usually found in popular movie ticket sites. The purpose of this project is also to show my skills with C++ and Qt for UI design and backend development.
 
 ## Security Practices
 
