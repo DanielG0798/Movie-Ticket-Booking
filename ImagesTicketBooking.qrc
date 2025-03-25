@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>Images/beasts.jpg</file>
+        <file>Images/matrix.jpg</file>
+        <file>Images/solarbabies.jpg</file>
+        <file>Images/terminator.jpg</file>
+        <file>Images/western.jpg</file>
+        <file>Images/cart.png</file>
+        <file>Images/red-circle.png</file>
+        <file>Images/lordofthebling.jpg</file>
+    </qresource>
+</RCC>
