@@ -1,0 +1,126 @@
+\doxysection{Documents/\+Programming Projects/\+Qt Projects/\+Movie\+\_\+\+Ticket\+\_\+\+Booking/\+Movie\+\_\+\+Ticket\+\_\+\+Booking/mainwindow.cpp File Reference}
+\hypertarget{mainwindow_8cpp}{}\label{mainwindow_8cpp}\index{Documents/Programming Projects/Qt Projects/Movie\_Ticket\_Booking/Movie\_Ticket\_Booking/mainwindow.cpp@{Documents/Programming Projects/Qt Projects/Movie\_Ticket\_Booking/Movie\_Ticket\_Booking/mainwindow.cpp}}
+{\ttfamily \#include "{}mainwindow.\+h"{}}\newline
+{\ttfamily \#include "{}ui\+\_\+mainwindow.\+h"{}}\newline
+{\ttfamily \#include $<$message.\+h$>$}\newline
+{\ttfamily \#include $<$QGrid\+Layout$>$}\newline
+{\ttfamily \#include $<$QDebug$>$}\newline
+{\ttfamily \#include $<$QMessage\+Box$>$}\newline
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{mainwindow_8cpp_af7f8e78bd369e0b048d1399fbd65b941}{cart\+Has\+Items}} = false
+\item 
+bool \mbox{\hyperlink{mainwindow_8cpp_a7d1e9306903733288e6ce5bbf0c4d805}{all\+Fields\+Filled}} = true
+\item 
+bool \mbox{\hyperlink{mainwindow_8cpp_a310ed21c064ab88b255d7b703d39c4df}{small\+Selection}} = false
+\item 
+bool \mbox{\hyperlink{mainwindow_8cpp_a36fc7c3465cb7fb8ae06da4674e39664}{no\+Adult}} = true
+\item 
+int \mbox{\hyperlink{mainwindow_8cpp_ac3de467848039e8fa26a925e4414cda4}{total\+Adult\+Tickets}}
+\item 
+int \mbox{\hyperlink{mainwindow_8cpp_a05609bd4d0591641809a97c64dae1af0}{total\+Child\+Tickets}}
+\item 
+QString \mbox{\hyperlink{mainwindow_8cpp_a56dc21c50df4eb65bd59cfc4e0c72401}{chosen\+Movie}}
+\item 
+QString \mbox{\hyperlink{mainwindow_8cpp_a918453e1d7450206caa7bbc5cc5077a5}{string\+Adult\+Total}}
+\item 
+QString \mbox{\hyperlink{mainwindow_8cpp_acd0022afce9f7aa0a5d4f6ca5ab07705}{string\+Child\+Total}}
+\item 
+QString \mbox{\hyperlink{mainwindow_8cpp_af09dd571712fcd998a7b7bc60c7e54d7}{string\+Total}}
+\item 
+QTime \mbox{\hyperlink{mainwindow_8cpp_aff184692acd9e8dd6539cd8c783b6fb4}{given\+Time}}
+\item 
+QDate \mbox{\hyperlink{mainwindow_8cpp_a61d5c2c79a639f498059bfb3d7693093}{given\+Date}}
+\item 
+const int \mbox{\hyperlink{mainwindow_8cpp_ae55c64a9ca8b0cbb4315d6302e6debe0}{adult\+Ticket\+Price}} = 1255
+\item 
+const int \mbox{\hyperlink{mainwindow_8cpp_a01760974f7f4b980f0f897fcb5b4d80f}{child\+Ticket\+Price}} = 500
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{mainwindow_8cpp_ae55c64a9ca8b0cbb4315d6302e6debe0}\index{mainwindow.cpp@{mainwindow.cpp}!adultTicketPrice@{adultTicketPrice}}
+\index{adultTicketPrice@{adultTicketPrice}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{adultTicketPrice}{adultTicketPrice}}
+{\footnotesize\ttfamily \label{mainwindow_8cpp_ae55c64a9ca8b0cbb4315d6302e6debe0} 
+const int adult\+Ticket\+Price = 1255}
+
+\Hypertarget{mainwindow_8cpp_a7d1e9306903733288e6ce5bbf0c4d805}\index{mainwindow.cpp@{mainwindow.cpp}!allFieldsFilled@{allFieldsFilled}}
+\index{allFieldsFilled@{allFieldsFilled}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{allFieldsFilled}{allFieldsFilled}}
+{\footnotesize\ttfamily \label{mainwindow_8cpp_a7d1e9306903733288e6ce5bbf0c4d805} 
+bool all\+Fields\+Filled = true}
+
+\Hypertarget{mainwindow_8cpp_af7f8e78bd369e0b048d1399fbd65b941}\index{mainwindow.cpp@{mainwindow.cpp}!cartHasItems@{cartHasItems}}
+\index{cartHasItems@{cartHasItems}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{cartHasItems}{cartHasItems}}
+{\footnotesize\ttfamily \label{mainwindow_8cpp_af7f8e78bd369e0b048d1399fbd65b941} 
+bool cart\+Has\+Items = false}
+
+\Hypertarget{mainwindow_8cpp_a01760974f7f4b980f0f897fcb5b4d80f}\index{mainwindow.cpp@{mainwindow.cpp}!childTicketPrice@{childTicketPrice}}
+\index{childTicketPrice@{childTicketPrice}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{childTicketPrice}{childTicketPrice}}
+{\footnotesize\ttfamily \label{mainwindow_8cpp_a01760974f7f4b980f0f897fcb5b4d80f} 
+const int child\+Ticket\+Price = 500}
+
+\Hypertarget{mainwindow_8cpp_a56dc21c50df4eb65bd59cfc4e0c72401}\index{mainwindow.cpp@{mainwindow.cpp}!chosenMovie@{chosenMovie}}
+\index{chosenMovie@{chosenMovie}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{chosenMovie}{chosenMovie}}
+{\footnotesize\ttfamily \label{mainwindow_8cpp_a56dc21c50df4eb65bd59cfc4e0c72401} 
+QString chosen\+Movie}
+
+\Hypertarget{mainwindow_8cpp_a61d5c2c79a639f498059bfb3d7693093}\index{mainwindow.cpp@{mainwindow.cpp}!givenDate@{givenDate}}
+\index{givenDate@{givenDate}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{givenDate}{givenDate}}
+{\footnotesize\ttfamily \label{mainwindow_8cpp_a61d5c2c79a639f498059bfb3d7693093} 
+QDate given\+Date}
+
+\Hypertarget{mainwindow_8cpp_aff184692acd9e8dd6539cd8c783b6fb4}\index{mainwindow.cpp@{mainwindow.cpp}!givenTime@{givenTime}}
+\index{givenTime@{givenTime}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{givenTime}{givenTime}}
+{\footnotesize\ttfamily \label{mainwindow_8cpp_aff184692acd9e8dd6539cd8c783b6fb4} 
+QTime given\+Time}
+
+\Hypertarget{mainwindow_8cpp_a36fc7c3465cb7fb8ae06da4674e39664}\index{mainwindow.cpp@{mainwindow.cpp}!noAdult@{noAdult}}
+\index{noAdult@{noAdult}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{noAdult}{noAdult}}
+{\footnotesize\ttfamily \label{mainwindow_8cpp_a36fc7c3465cb7fb8ae06da4674e39664} 
+bool no\+Adult = true}
+
+\Hypertarget{mainwindow_8cpp_a310ed21c064ab88b255d7b703d39c4df}\index{mainwindow.cpp@{mainwindow.cpp}!smallSelection@{smallSelection}}
+\index{smallSelection@{smallSelection}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{smallSelection}{smallSelection}}
+{\footnotesize\ttfamily \label{mainwindow_8cpp_a310ed21c064ab88b255d7b703d39c4df} 
+bool small\+Selection = false}
+
+\Hypertarget{mainwindow_8cpp_a918453e1d7450206caa7bbc5cc5077a5}\index{mainwindow.cpp@{mainwindow.cpp}!stringAdultTotal@{stringAdultTotal}}
+\index{stringAdultTotal@{stringAdultTotal}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{stringAdultTotal}{stringAdultTotal}}
+{\footnotesize\ttfamily \label{mainwindow_8cpp_a918453e1d7450206caa7bbc5cc5077a5} 
+QString string\+Adult\+Total}
+
+\Hypertarget{mainwindow_8cpp_acd0022afce9f7aa0a5d4f6ca5ab07705}\index{mainwindow.cpp@{mainwindow.cpp}!stringChildTotal@{stringChildTotal}}
+\index{stringChildTotal@{stringChildTotal}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{stringChildTotal}{stringChildTotal}}
+{\footnotesize\ttfamily \label{mainwindow_8cpp_acd0022afce9f7aa0a5d4f6ca5ab07705} 
+QString string\+Child\+Total}
+
+\Hypertarget{mainwindow_8cpp_af09dd571712fcd998a7b7bc60c7e54d7}\index{mainwindow.cpp@{mainwindow.cpp}!stringTotal@{stringTotal}}
+\index{stringTotal@{stringTotal}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{stringTotal}{stringTotal}}
+{\footnotesize\ttfamily \label{mainwindow_8cpp_af09dd571712fcd998a7b7bc60c7e54d7} 
+QString string\+Total}
+
+\Hypertarget{mainwindow_8cpp_ac3de467848039e8fa26a925e4414cda4}\index{mainwindow.cpp@{mainwindow.cpp}!totalAdultTickets@{totalAdultTickets}}
+\index{totalAdultTickets@{totalAdultTickets}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{totalAdultTickets}{totalAdultTickets}}
+{\footnotesize\ttfamily \label{mainwindow_8cpp_ac3de467848039e8fa26a925e4414cda4} 
+int total\+Adult\+Tickets}
+
+\Hypertarget{mainwindow_8cpp_a05609bd4d0591641809a97c64dae1af0}\index{mainwindow.cpp@{mainwindow.cpp}!totalChildTickets@{totalChildTickets}}
+\index{totalChildTickets@{totalChildTickets}!mainwindow.cpp@{mainwindow.cpp}}
+\doxysubsubsection{\texorpdfstring{totalChildTickets}{totalChildTickets}}
+{\footnotesize\ttfamily \label{mainwindow_8cpp_a05609bd4d0591641809a97c64dae1af0} 
+int total\+Child\+Tickets}
+

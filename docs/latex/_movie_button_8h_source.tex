@@ -1,0 +1,32 @@
+\doxysection{Movie\+Button.\+h}
+\hypertarget{_movie_button_8h_source}{}\label{_movie_button_8h_source}\index{Documents/Programming Projects/Qt Projects/Movie\_Ticket\_Booking/Movie\_Ticket\_Booking/MovieButton.h@{Documents/Programming Projects/Qt Projects/Movie\_Ticket\_Booking/Movie\_Ticket\_Booking/MovieButton.h}}
+\mbox{\hyperlink{_movie_button_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MOVIEBUTTON\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MOVIEBUTTON\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QPushButton>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QPixmap>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QWidget>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_movie_button_aa7c2a24fd3f05fc8af294781e3dded76}{MovieButton}}\ :\ \textcolor{keyword}{public}\ QPushButton}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00012\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00013\ \ \ \ \ QString\ title;}
+\DoxyCodeLine{00014\ \ \ \ \ QPixmap\ movieImage;\ \textcolor{comment}{//\ the\ given\ image\ for\ the\ button\ icon}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_movie_button_aa7c2a24fd3f05fc8af294781e3dded76}{MovieButton}}(\textcolor{keyword}{const}\ QString\ \&movieTitle,\textcolor{keyword}{const}\ QString\ \&imagePath,\ QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ signals:}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_movie_button_aece0d1d0bf13f178258ab22f5f8767e8}{movieClicked}}(\textcolor{keyword}{const}\ QString\ \&title);}
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{void}\ handleClick();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ MOVIEBUTTON\_H}}
+
+\end{DoxyCode}
