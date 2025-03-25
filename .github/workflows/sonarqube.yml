@@ -25,42 +25,45 @@
 # or reach out to our community forum if you need some help (https://community.sonarsource.com/c/sq/10)
 
 name: SonarQube Analysis
-
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pull-requests: write  # Required for PR decoration
-  security-events: write  # Optional: For GitHub Code Scanning integration
+    types: [opened, synchronize, reopened]
 
 jobs:
-  Analysis:
-    runs-on: ubuntu-latest
+  build:
+    name: Build and Analyze (C++)
+    runs-on: windows-latest  # Use "ubuntu-latest" for Linux/macOS
+    env:
+      BUILD_WRAPPER_OUT_DIR: build_wrapper_output  # Output directory for build-wrapper
+      SONAR_HOST_URL: https://sonarcloud.io  # Replace if using self-hosted SonarQube
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Required for SonarQube to analyze commit history
 
-      - name: Set up JDK 17 (if your project uses Java)
-        uses: actions/setup-java@v3
-        with:
-          java-version: '17'
-          distribution: 'temurin'
+      - name: Install Build Wrapper
+        uses: SonarSource/sonarqube-scan-action/install-build-wrapper@v5
 
-      - name: Analyze with SonarQube
-        uses: SonarSource/sonarqube-scan-action@v2
+      - name: Build with Build Wrapper (C++)
+        run: |
+          # Replace with your C++ build command (e.g., CMake, MSBuild, Make)
+          build-wrapper-win-x86-64.exe --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} msbuild YourSolution.sln /t: Rebuild
+          # For Linux/macOS, use:
+          # build-wrapper-linux-x86-64 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} make all
+
+      - name: Run SonarQube Analysis
+        uses: SonarSource/sonarqube-scan-action@v5
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Auto-provided by GitHub (no manual setup)
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}   # Must be manually added to repo secrets
-          SONAR_HOST_URL: https://sonarcloud.io      # Replace if using self-hosted SonarQube
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}  # Must be set in GitHub Secrets
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Required for PR decoration
         with:
           args: >
-            -Dsonar.projectKey=DanielG0798_Movie-Ticket-Booking
-            -Dsonar.verbose=true
-            -Dsonar.ci.autoconfig.disabled=true
+            -Dsonar.projectKey=DanielG0798_Movie-Ticket-Booking  # Your SonarCloud project key
+            -Dsonar.cfamily.build-wrapper-output=${{ env.BUILD_WRAPPER_OUT_DIR }}
+            -Dsonar.ci.autoconfig.disabled=true  # Avoid conflict with Automatic Analysis
+            -Dsonar.verbose=true  # Optional: Enable debug logs
