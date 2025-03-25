@@ -1,6 +1,6 @@
 **Badges:**
 ![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/DanielG0798/Movie-Ticket-Booking/badge)
-[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/10227/badge)](https://www.bestpractices.dev/projects/10227)
+<a href="https://www.bestpractices.dev/projects/10227"><img src="https://www.bestpractices.dev/projects/10227/badge"></a>
 
 ## Purpose of Project
 
