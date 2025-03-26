@@ -1,43 +1,40 @@
-name: Build
+name: Build Qt Project
 
 on:
   push:
     branches:
       - main
   pull_request:
-    types: [opened, synchronize, reopened]
+    branches:
+      - main
 
 jobs:
   build:
-    name: Build
     runs-on: windows-latest
-    env:
-      BUILD_WRAPPER_OUT_DIR: build_wrapper_output_directory # Directory where build-wrapper output will be placed
+
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Install Qt
-        uses: jurplel/install-qt-action@v4
-        with:
-          version: '5.15.2'  # Specify the desired Qt version
-          host: 'windows'   # Target platform
-          add_to_path: true # Optionally add Qt to PATH
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v4
+      with:
+        version: '6.7.3'  # Set this to '6.2.0' if your project requires Qt6
+        host: 'windows'
+        target: 'desktop'
 
-      - name: Install Build Wrapper
-        uses: SonarSource/sonarqube-scan-action/install-build-wrapper@v4
+    - name: Set up MSBuild
+      uses: microsoft/setup-msbuild@v1.1.0
 
-      - name: Run Build Wrapper
-        run: |
-          New-Item -ItemType directory -Path build
-          cmake -S . -B build
-          build-wrapper-win-x86-64.exe --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} cmake --build build/ --config Release
+    - name: Install dependencies
+      run: |
+        choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System' --yes
+        choco install visualstudio2022-workload-desktopbuild --yes
 
-      - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v4
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} 
-        with:
-          args: >
-            --define sonar.cfamily.compile-commands="${{ env.BUILD_WRAPPER_OUT_DIR }}/compile_commands.json"
+    - name: Configure CMake
+      run: |
+        cmake -S . -B build -G "Visual Studio 17 2022" -DCMAKE_BUILD_TYPE=Release
+
+    - name: Build with MSBuild
+      run: |
+        msbuild build/Movie_Ticket_Booking.sln /p:Configuration=Release
