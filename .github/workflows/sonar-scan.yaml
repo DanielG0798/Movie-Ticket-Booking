@@ -20,7 +20,7 @@ jobs:
 
       - name: Install Qt via Official Installer
         run: |
-          Invoke-WebRequest -Uri https://download.qt.io/official_releases/qt/5.15/5.15.2/qt-opensource-windows-x86-5.15.2.exe -OutFile qt-installer.exe
+          Invoke-WebRequest -Uri https://download.qt.io/official_releases/qt/5.15/5.15.0/qt-opensource-windows-x86-5.15.0.exe -OutFile qt-installer.exe
           Start-Process -FilePath qt-installer.exe -ArgumentList "/S", "/D=C:\Qt" -Wait
           echo "Qt installation complete."
 
