@@ -18,11 +18,12 @@ jobs:
         with:
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
 
-      - name: Install Qt via Official Installer
-        run: |
-          Invoke-WebRequest -Uri https://download.qt.io/official_releases/qt/5.15/5.15.0/qt-opensource-windows-x86-5.15.0.exe -OutFile qt-installer.exe
-          Start-Process -FilePath qt-installer.exe -ArgumentList "/S", "/D=C:\Qt" -Wait
-          echo "Qt installation complete."
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: '5.15.2'  # Specify the desired Qt version
+          host: 'windows'   # Target platform
+          add_to_path: true # Optionally add Qt to PATH
 
       - name: Install Build Wrapper
         uses: SonarSource/sonarqube-scan-action/install-build-wrapper@v4
